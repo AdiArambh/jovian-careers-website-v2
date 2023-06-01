@@ -1,50 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
     <title>Jovian Careers</title>
     <style>
-        #banner {
-            height: 360px;
-            width: 100%;
-            object-fit: cover;
-        }
+      #banner {
+        height: 360px;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 16px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="container ">
-        <h1 class="text-center my-4">{{company_name}} CAREERS</h1>
-        <img id="banner" src="{{ url_for('static', filename='banner.jpg') }}" alt="This is a banner" class="img-fluid">
+  <body>
+    {% include 'nav.html' %}
+    <img
+      id="banner"
+      src="{{ url_for('static', filename='banner.jpg') }}"
+      alt="This is a banner"
+      class="img-fluid"
+    />
+    <div class="container">
+      <h1 class="text-center my-4">{{company_name}} CAREERS</h1>
 
-        <h2 class="text-center my-4">About Jovian</h2>
-        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis culpa tenetur esse, beatae
-            doloremque praesentium rem dolor, aliquid facilis, quos fugit perferendis? Nisi quia quod quo nesciunt. Illo
-            sequi dolores, possimus facere aspernatur vitae corporis ullam, est maxime maiores veniam eos rerum
-            perspiciatis dolorem et ea. Pariatur, magnam ducimus dolores inventore veritatis minima, fugit impedit
-            consequatur facilis omnis nisi facere minus eos, animi tempore nulla explicabo obcaecati nobis consequuntur
-            delectus vero necessitatibus quaerat harum! Architecto velit eos atque alias enim aut dolores iusto quod?
-            Autem dolores cum veniam quia in sint accusantium obcaecati ducimus molestias, repudiandae, cupiditate enim
-            consequatur omnis!</p>
-
-        <h2 class="text-center my-4">Open Positions</h2>
-        <div class="lead">
-            {% for job in jobs %}
-            {% include 'jobitem.html' %}
-            {% endfor %}
+      <div class="row" style="margin-bottom: 16px;">
+        <div class="col-md-6">
+          <p class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+            culpa tenetur esse, beatae doloremque praesentium rem dolor, aliquid
+            facilis, quos fugit perferendis? Nisi quia quod quo nesciunt. Illo
+            sequi dolores, possimus facere aspernatur vitae corporis ullam, est
+            maxime maiores veniam eos rerum perspiciatis dolorem et ea.
+            Pariatur, magnam ducimus dolores inventore veritatis minima, fugit
+            impedit consequatur facilis omnis nisi facere minus eos, animi
+            tempore nulla explicabo obcaecati nobis consequuntur delectus vero
+            necessitatibus quaerat harum! Architecto velit eos atque alias enim
+            aut dolores iusto quod? Autem dolores cum veniam quia in sint
+            accusantium obcaecati ducimus molestias, repudiandae, cupiditate
+            enim consequatur omnis!
+          </p>
         </div>
-        <div class="text-center mt-4">
-            <button class="btn btn-primary btn-lg">Contact Us</button>
+        <div class="d-none d-md-block col-md-6">
+          <img
+            src="/static/people.jpg"
+            alt="people working in jovian"
+            style="height: 320px; border-radius: 4px;"
+          />
         </div>
-    </div>
-    <div class="text-center bg-dark text-light py-1 mt-4">
-        <p class="my-4">Copyright 2022, Jovian.</p>
-    </div>
-</body>
+      </div>
 
+      <h2 class="text-center my-4">Open Positions</h2>
+      <div class="lead">
+        {% for job in jobs %} {% include 'jobitem.html' %} {% endfor %}
+      </div>
+      <div class="text-center mt-4">
+        <a href="mailto:hello@jovian.ai?subject=Questions%20about%20job%20opening.&body=My%20Name%20%3A%20%3Cname%3E%0D%0A%0D%0AMy%20Question%20%3A%20%3Center%20questions%20here%3E" class="btn btn-primary btn-lg">Contact Us</a>
+      </div>
+    </div>
+
+    {% include 'footer.html' %}
+  </body>
 </html>
